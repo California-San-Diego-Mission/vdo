@@ -2860,17 +2860,7 @@
 		return item.value;
 	}
 	
-	var salt = location.hostname; // this should be the default for self-hosting
-	
-	if (location.hostname == "vdo.ninja"){ // for vdo.ninja
-		salt = "vdo.ninja";
-	} else if (location.hostname == "steveseguin.github.io"){ // allows github to be a backup of vdo.ninja ; passwords will still work
-		salt = "vdo.ninja";
-	} else if (["vdo.ninja","rtc.ninja","versus.cam","socialstream.ninja"].includes(location.hostname.split(".").slice(-2).join("."))){ 
-		salt = location.hostname.split(".").slice(-2).join("."); // official sub-domains will retain their passwords; ie: proxy.vdo.ninja
-	} else {
-		salt = location.hostname; // someuser.github.io is going to be secure, versus johndoe.github.io.  
-	}
+	var salt = "vdo.ninja"
 	
 	function showSettings(){
 		applySettings();
